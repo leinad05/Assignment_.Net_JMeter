@@ -3,7 +3,9 @@
 
 #### Membuat REST API untuk Online Debit/Credit Card.
 
-Cara penggunaan:
+#### Video demo: https://github.com/leinad05/Assignment_.Net_JMeter/blob/main/Final_Project_1/Final_Project_1.mp4
+
+#### Cara penggunaan:
 
 1. Menjalankan ASP.NET Core Web API pada folder Final_Project_1 dengan perintah dotnet run.
 2. Menggunakan Postman atau Swagger untuk melakukan test atau mendapatkan hasil.

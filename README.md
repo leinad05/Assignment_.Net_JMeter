@@ -1,4 +1,4 @@
-# Assignment
+# Assignments & Final Projects
 
 1. Assignment 1: https://github.com/leinad05/Assignment_.Net_JMeter/tree/main/Assignment_1
 
