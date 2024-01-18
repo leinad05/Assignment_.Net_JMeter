@@ -1,44 +1,51 @@
-print("Masukkan jumlah barang yang akan ditambahkan: ")
-int jumlahData = Integer.parseInt(System.console().readLine())
-def daftarBarang = []
-double totalInventaris = 0
+def listBarang = []
+double totalNilai = harga = 0
+int counter = 1
+String id = nama = ""
+int stok = 0
 
-if (jumlahData>0) {
-    try{
-        for (int i = 1; i <= jumlahData; i++) {
-            print("Masukkan ID barang ke-$i: ")
-            String id = System.console().readLine()
+try{
+    print("Masukkan jumlah barang yang akan ditambahkan: ")
+    int jumlahBarang = Integer.parseInt(System.console().readLine())
 
-            print("Masukkan nama barang: ")
-            String nama = System.console().readLine()
+    if(jumlahBarang<=0) {
+        throw new Exception("Inputan tidak boleh kosong!")
+    }
 
-            print("Masukkan harga barang: ")
-            double harga = Double.parseDouble(System.console().readLine())
+    while (counter <= jumlahBarang) {
+        print("Masukkan ID barang ke-$counter: ")
+        id = System.console().readLine()
 
-            print("Masukkan stok barang: ")
-            int stok = Integer.parseInt(System.console().readLine())
+        print("Masukkan nama barang: ")
+        nama = System.console().readLine()
 
-            def barang = [
-                id: id,
-                nama: nama,
-                harga: harga,
-                stok: stok
-            ]
+        print("Masukkan harga barang: ")
+        harga = Double.parseDouble(System.console().readLine())
 
-            daftarBarang << barang
-            totalInventaris += harga * stok
-        }
+        print("Masukkan stok barang: ")
+        stok = Integer.parseInt(System.console().readLine())
 
-        println "\nDaftar Barang:"
-        for (barang in daftarBarang) {
-            println "ID: $barang.id, Nama: $barang.nama, Harga: $barang.harga, Stok: $barang.stok"
-        }
+        def barang = [
+            id: id,
+            nama: nama,
+            harga: harga,
+            stok: stok
+        ]
 
-        println "\nTotal Nilai Inventaris Toko: $totalInventaris"
-    } catch(Exception err) {
-        println("Error: Masukkan harga dan stok harus berupa angka")
+        listBarang << barang
+        totalNilai += harga * stok
+
+        counter++
     }
     
-} else {
-    print("Tidak ada barang yang diinput!")
+    println "\nDaftar Barang:"
+    for (barang in listBarang) {
+        println "ID: $barang.id, Nama: $barang.nama, Harga: $barang.harga, Stok: $barang.stok"
+    }
+
+    println "\nTotal Nilai Inventaris Toko: $totalNilai"
+} catch(NumberFormatException err) {
+    println("Error: Masukkan harus berupa angka!")
+} catch(Exception err) {
+    println("Error: $err.message")
 }
